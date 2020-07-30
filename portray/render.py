@@ -196,8 +196,8 @@ def _label(path: str, config: Dict) -> str:
     label = os.path.basename(path)
     if "." in label:
         label = ".".join(label.split(".")[:-1])
-    label = label.replace("-", " ").replace("_", " ").title()
-    return config["labels"].get(label, label)
+    lookup_label = label.replace("-", " ").replace("_", " ").title()
+    return config["labels"].get(lookup_label, label)
 
 
 def _doc(path: str, root_path: str, config: dict) -> Dict[str, str]:
